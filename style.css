@@ -117,6 +117,8 @@ body {
 /* ===== Gallery Grid ===== */
 .gallery {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 20vh;
   gap: 0;
 }
 
@@ -137,7 +139,7 @@ body {
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   transition: transform 0.7s var(--transition-smooth);
 }
@@ -145,33 +147,6 @@ body {
 .gallery-item:hover img {
   transform: scale(1.04);
 }
-
-/* --- 美肤衣: 1-2-1 asymmetric --- */
-.gallery-mfy {
-  grid-template-columns: 1.3fr 0.9fr;
-  grid-template-rows: 12vh 8vh;
-}
-.gallery-mfy .item-main  { grid-row: 1 / 3; }
-.gallery-mfy .item-right { grid-row: 1 / 2; }
-.gallery-mfy .item-wide  { grid-column: 1 / -1; }
-
-/* --- 保暖背心: wide-top, tall-right, main-bottom --- */
-.gallery-bnbx {
-  grid-template-columns: 1fr 0.85fr;
-  grid-template-rows: 8vh 12vh;
-}
-.gallery-bnbx .item-wide { grid-column: 1 / -1; }
-.gallery-bnbx .item-tall  { grid-row: 2 / 3; }
-.gallery-bnbx .item-main  { grid-row: 2 / 3; }
-
-/* --- 收腹裤: tall-left, main-right, wide-bottom --- */
-.gallery-sfk {
-  grid-template-columns: 0.9fr 1.2fr;
-  grid-template-rows: 12vh 8vh;
-}
-.gallery-sfk .item-tall { grid-row: 1 / 2; }
-.gallery-sfk .item-main { grid-row: 1 / 2; }
-.gallery-sfk .item-wide  { grid-column: 1 / -1; }
 
 /* ===== Footer ===== */
 .footer {
@@ -207,15 +182,7 @@ body {
 @media (max-width: 1024px) {
   .main-content { padding: 90px 32px 60px; }
   .nav-inner { padding: 16px 32px; }
-
-  .gallery-mfy, .gallery-bnbx {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10vh 8vh;
-  }
-  .gallery-sfk {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 12vh 8vh;
-  }
+  .gallery { grid-template-rows: 16vh; }
   .product-section { margin-bottom: 60px; }
 }
 
