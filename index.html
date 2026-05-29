@@ -3,70 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>作品集 — 服装作品展示</title>
-  <link rel="stylesheet" href="style.css">
+  <title>运营资料 & 会员手册</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #86868b;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin-bottom: 50px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .gallery-item {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s ease;
+    }
+    .gallery-item:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery-item .caption {
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #515154;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #86868b;
+      font-size: 13px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 20px;
+    }
+    @media (min-width: 640px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-inner">
-      <span class="nav-brand">PORTFOLIO</span>
-      <span class="nav-desc">服装作品集</span>
+  <div class="container">
+    <h1>运营资料 & 会员手册</h1>
+    <p class="subtitle">内部资料 · 仅供查阅</p>
+
+    <div class="section">
+      <div class="section-title">运营聊天记录</div>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/运营聊天记录1.jpg" alt="运营聊天记录1" loading="lazy">
+          <div class="caption">运营聊天记录 1</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/运营聊天记录2.avif" alt="运营聊天记录2" loading="lazy">
+          <div class="caption">运营聊天记录 2</div>
+        </div>
+      </div>
     </div>
-  </nav>
 
-
-  <main class="main-content">
-
-    <!-- 美肤衣 -->
-    <section class="product-section" id="mfy">
-      <div class="product-header">
-        <span class="product-num">01</span>
-        <h2 class="product-name">美肤衣</h2>
-        <p class="product-desc">亲肤柔滑，宛若第二层肌肤</p>
+    <div class="section">
+      <div class="section-title">会员手册</div>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/会员手册1.png" alt="会员手册1" loading="lazy">
+          <div class="caption">会员手册 1</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/会员手册2.png" alt="会员手册2" loading="lazy">
+          <div class="caption">会员手册 2</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/会员手册3.png" alt="会员手册3" loading="lazy">
+          <div class="caption">会员手册 3</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/会员手册4.png" alt="会员手册4" loading="lazy">
+          <div class="caption">会员手册 4</div>
+        </div>
       </div>
-      <div class="gallery gallery-mfy">
-        <a href="https://pan.baidu.com/s/1rtr0ioDqDZYOX4ZeiTYjTw?pwd=4ivm" target="_blank" rel="noopener" class="gallery-item"><img src="images/mfy1.png" alt="美肤衣展示一" loading="lazy"></a>
-        <a href="https://pan.baidu.com/s/1rtr0ioDqDZYOX4ZeiTYjTw?pwd=4ivm" target="_blank" rel="noopener" class="gallery-item"><img src="images/mfy2.png" alt="美肤衣展示二" loading="lazy"></a>
-        <a href="https://pan.baidu.com/s/1rtr0ioDqDZYOX4ZeiTYjTw?pwd=4ivm" target="_blank" rel="noopener" class="gallery-item"><img src="images/mfy3.png" alt="美肤衣展示三" loading="lazy"></a>
-      </div>
-    </section>
+    </div>
 
-    <!-- 保暖背心 -->
-    <section class="product-section" id="bnbx">
-      <div class="product-header">
-        <span class="product-num">02</span>
-        <h2 class="product-name">保暖背心</h2>
-        <p class="product-desc">温暖守护，冬日的柔软拥抱</p>
-      </div>
-      <div class="gallery gallery-bnbx">
-        <a href="https://pan.baidu.com/s/1qKK17jDx0ShZsCPVzrYqYQ?pwd=8ri5" target="_blank" rel="noopener" class="gallery-item"><img src="images/bnbx1.png" alt="保暖背心展示一" loading="lazy"></a>
-        <a href="https://pan.baidu.com/s/1qKK17jDx0ShZsCPVzrYqYQ?pwd=8ri5" target="_blank" rel="noopener" class="gallery-item"><img src="images/bnbx2.png" alt="保暖背心展示二" loading="lazy"></a>
-        <a href="https://pan.baidu.com/s/1qKK17jDx0ShZsCPVzrYqYQ?pwd=8ri5" target="_blank" rel="noopener" class="gallery-item"><img src="images/bnbx3.png" alt="保暖背心展示三" loading="lazy"></a>
-      </div>
-    </section>
-
-    <!-- 收腹裤 -->
-    <section class="product-section" id="sfk">
-      <div class="product-header">
-        <span class="product-num">03</span>
-        <h2 class="product-name">收腹裤</h2>
-        <p class="product-desc">塑形修身，自信线条由此开始</p>
-      </div>
-      <div class="gallery gallery-sfk">
-        <a href="https://pan.baidu.com/s/189o2MTepi3Gc9KObshLvlg?pwd=4u9n" target="_blank" rel="noopener" class="gallery-item"><img src="images/sfk1.png" alt="收腹裤展示一" loading="lazy"></a>
-        <a href="https://pan.baidu.com/s/189o2MTepi3Gc9KObshLvlg?pwd=4u9n" target="_blank" rel="noopener" class="gallery-item"><img src="images/sfk2.png" alt="收腹裤展示二" loading="lazy"></a>
-        <a href="https://pan.baidu.com/s/189o2MTepi3Gc9KObshLvlg?pwd=4u9n" target="_blank" rel="noopener" class="gallery-item"><img src="images/sfk3.png" alt="收腹裤展示三" loading="lazy"></a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-line"></div>
-    <p>© 2025 Portfolio · 服装作品集</p>
-    <p class="footer-note">如需了解更多作品，欢迎联系</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <footer>
+      <p>© 2026 · 内部资料</p>
+    </footer>
+  </div>
 </body>
 </html>
