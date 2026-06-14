@@ -3,119 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>运营资料 & 会员手册</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
-      line-height: 1.6;
-    }
-    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    .subtitle {
-      font-size: 16px;
-      color: #86868b;
-      margin-bottom: 40px;
-    }
-    .section {
-      margin-bottom: 50px;
-    }
-    .section-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e0e0e0;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    .gallery-item {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: box-shadow 0.3s ease;
-    }
-    .gallery-item:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); }
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .gallery-item .caption {
-      padding: 12px 16px;
-      font-size: 14px;
-      color: #515154;
-      background: #fafafa;
-      border-top: 1px solid #eee;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      color: #86868b;
-      font-size: 13px;
-      border-top: 1px solid #e0e0e0;
-      margin-top: 20px;
-    }
-    @media (min-width: 640px) {
-      .gallery { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <title>作品集</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>运营资料 & 会员手册</h1>
-    <p class="subtitle">内部资料 · 仅供查阅</p>
+    <header class="portfolio-header">
+      <h1>作品集</h1>
+      <p></p>
+    </header>
 
-    <div class="section">
-      <div class="section-title">运营聊天记录</div>
-      <div class="gallery">
-        <div class="gallery-item">
-          <img src="images/运营聊天记录1.jpg" alt="运营聊天记录1" loading="lazy">
-          <div class="caption">运营聊天记录 1</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/运营聊天记录2.avif" alt="运营聊天记录2" loading="lazy">
-          <div class="caption">运营聊天记录 2</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">会员手册</div>
-      <div class="gallery">
-        <div class="gallery-item">
-          <img src="images/会员手册1.png" alt="会员手册1" loading="lazy">
-          <div class="caption">会员手册 1</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/会员手册2.png" alt="会员手册2" loading="lazy">
-          <div class="caption">会员手册 2</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/会员手册3.png" alt="会员手册3" loading="lazy">
-          <div class="caption">会员手册 3</div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/会员手册4.png" alt="会员手册4" loading="lazy">
-          <div class="caption">会员手册 4</div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2026 · 内部资料</p>
+    <footer class="footer-note">
+      <p></p>
     </footer>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
