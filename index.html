@@ -1,22 +1,392 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>作品集</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张卓冉·作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-a: #0f0f1a;
+            --bg-b: #1a1a2e;
+            --bg-c: #16213e;
+            --panel: rgba(255, 255, 255, 0.03);
+            --panel-soft: rgba(255, 255, 255, 0.02);
+            --line: rgba(255, 255, 255, 0.08);
+            --text: #ffffff;
+            --muted: #a0a0b0;
+            --soft: #c0c0d0;
+            --title: #e0e0ff;
+            --accent-a: #667eea;
+            --accent-b: #764ba2;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, var(--bg-a) 0%, var(--bg-b) 50%, var(--bg-c) 100%);
+            color: var(--text);
+            line-height: 1.2;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            padding: 0 20px 10px;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-a) 0%, var(--accent-b) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-header p {
+            font-size: 1.2rem;
+            color: var(--muted);
+        }
+
+        .work-section {
+            background: var(--panel);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 40px;
+            border: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .work-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .work-title span {
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: var(--title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .work-description {
+            color: var(--soft);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.35;
+        }
+
+        .project-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--panel-soft);
+            border-radius: 8px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .info-item strong {
+            color: var(--title);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 10px 0 0;
+        }
+
+        .work-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            text-decoration: none;
+            color: var(--text);
+            outline: none;
+        }
+
+        .work-image img {
+            width: min(70%, 760px);
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .work-image::after {
+            content: "点击查看作品";
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            transform: translate(-50%, 8px);
+            opacity: 0;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(15, 15, 26, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: var(--title);
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .work-image:hover img,
+        .work-image:focus-visible img {
+            transform: translateY(-3px) scale(1.01);
+            filter: brightness(1.08);
+        }
+
+        .work-image:hover::after,
+        .work-image:focus-visible::after {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        .appendix-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .appendix-image {
+            background: var(--panel-soft);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .appendix-image img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .caption {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 40px 20px;
+            color: #606080;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 28px 14px;
+            }
+
+            .portfolio-header h1 {
+                font-size: 2rem;
+            }
+
+            .portfolio-header p {
+                font-size: 1rem;
+            }
+
+            .work-section {
+                padding: 16px;
+            }
+
+            .work-title {
+                align-items: flex-start;
+                font-size: 1.4rem;
+                line-height: 1.25;
+            }
+
+            .project-info {
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .info-item {
+                align-items: flex-start;
+            }
+
+            .work-image img {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header class="portfolio-header">
-      <h1>作品集</h1>
-      <p></p>
-    </header>
+    <div class="container">
+        <header class="portfolio-header">
+            <h1>张卓冉·作品集</h1>
+            <p>珠宝短视频 · 剪辑 · AI辅助</p>
+        </header>
 
-    <footer class="footer-note">
-      <p></p>
-    </footer>
-  </div>
-  <script src="script.js"></script>
+        <!-- 作品一：冰钻桃花 -->
+        <section class="work-section">
+            <h2 class="work-title">
+                <span>📹</span>
+                作品一：冰钻桃花 | 六福珠宝
+            </h2>
+
+            <h3 class="section-title">📝 作品简介</h3>
+            <p class="work-description">
+                用柔暖春日光影呈现冰钻桃花的璀璨虹光，捕捉镂空花瓣与炫彩工艺的流动光泽，节奏轻快灵动，传递浪漫春日氛围。
+            </p>
+
+            <div class="project-info">
+                <div class="info-item"><strong>制作工具：</strong>剪映、Premiere Pro（PR）</div>
+                <div class="info-item"><strong>时长：</strong>0:22</div>
+            </div>
+
+            <div class="image-grid">
+                <a href="https://www.xinpianchang.com/a13720864?from=private_pwd&pwd=ijdq" target="_blank" rel="noopener noreferrer" class="work-image" aria-label="查看作品：冰钻桃花">
+                    <img src="images/冰钻桃花.jpg" alt="冰钻桃花封面">
+                </a>
+            </div>
+        </section>
+
+        <!-- 作品二：节气小满 -->
+        <section class="work-section">
+            <h2 class="work-title">
+                <span>📹</span>
+                作品二：节气小满 | 六福珠宝
+            </h2>
+
+            <h3 class="section-title">📝 作品简介</h3>
+            <p class="work-description">
+                围绕小满"盈而未满"的意境，以清雅舒缓的镜头语言呈现珠宝温润质感，将节气哲思与珠宝美学相融，打造氛围感节气主题短片。
+            </p>
+
+            <div class="project-info">
+                <div class="info-item"><strong>制作工具：</strong>剪映、Premiere Pro（PR）</div>
+                <div class="info-item"><strong>时长：</strong>0:36</div>
+            </div>
+
+            <div class="image-grid">
+                <a href="https://www.xinpianchang.com/a13713636?from=private_pwd&pwd=q9if" target="_blank" rel="noopener noreferrer" class="work-image" aria-label="查看作品：节气小满">
+                    <img src="images/节气小满.jpg" alt="节气小满封面">
+                </a>
+            </div>
+        </section>
+
+        <!-- 作品三：黄金手镯 -->
+        <section class="work-section">
+            <h2 class="work-title">
+                <span>📹</span>
+                作品三：黄金手镯 | 六福珠宝
+            </h2>
+
+            <h3 class="section-title">📝 作品简介</h3>
+            <p class="work-description">
+                以东方古典光影还原唐潮系列的盛唐气韵，节奏沉稳大气，融合古韵与现代审美，呈现国潮珠宝的文化质感。
+            </p>
+
+            <div class="project-info">
+                <div class="info-item"><strong>制作工具：</strong>剪映、Premiere Pro（PR）</div>
+                <div class="info-item"><strong>时长：</strong>0:22</div>
+            </div>
+
+            <div class="image-grid">
+                <a href="https://www.xinpianchang.com/a13717772?from=private_pwd&pwd=glzd" target="_blank" rel="noopener noreferrer" class="work-image" aria-label="查看作品：黄金手镯">
+                    <img src="images/六福珠宝黄金手镯.jpg" alt="黄金手镯封面">
+                </a>
+            </div>
+        </section>
+
+        <!-- 作品四：铂金黑钻 -->
+        <section class="work-section">
+            <h2 class="work-title">
+                <span>📹</span>
+                作品四：铂金黑钻 | 六福珠宝
+            </h2>
+
+            <h3 class="section-title">📝 作品简介</h3>
+            <p class="work-description">
+                以冷调都市光影勾勒铂金黑钻系列的质感，聚焦几何造型、拉丝工艺与黑钻错落细节，呈现潮酷调性。
+            </p>
+
+            <div class="project-info">
+                <div class="info-item"><strong>制作工具：</strong>剪映、Premiere Pro（PR）</div>
+                <div class="info-item"><strong>时长：</strong>0:24</div>
+            </div>
+
+            <div class="image-grid">
+                <a href="https://www.xinpianchang.com/a13713397?from=private_pwd&pwd=3evp" target="_blank" rel="noopener noreferrer" class="work-image" aria-label="查看作品：铂金黑钻">
+                    <img src="images/六福珠宝×铂金黑钻系.jpg" alt="铂金黑钻封面">
+                </a>
+            </div>
+        </section>
+
+        <!-- 附录：AI——创作的辅助，而非主导 -->
+        <section class="work-section">
+            <h2 class="work-title">
+                <span>✨</span>
+                附录：AI——创作的辅助，而非主导
+            </h2>
+
+            <p class="work-description">
+                我会使用AI协助生成分镜脚本、少数素材，规避版权争议。但创作的主导始终是我本人。
+            </p>
+
+            <div class="appendix-grid">
+                <figure class="appendix-image">
+                    <img src="images/附录：提示词与部分素材.png" alt="AI提示词与部分素材" loading="lazy">
+                    <figcaption class="caption">图：提示词与部分素材</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <footer class="footer-note">
+            <p>DESIGNED FOR PROFESSIONAL VISUAL NARRATIVE</p>
+            <p style="margin-top: 8px;">用镜头语言讲述故事，让影像成为可被观看、理解与记住的作品。</p>
+        </footer>
+    </div>
 </body>
 </html>
